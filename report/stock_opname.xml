@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- report qweb view -->
+        <report id="report_vit_stock_opname_menu" string="Vit - Stock opname"
+         model="vit.stock_opname" report_type="qweb-pdf" 
+         file="vit.stock_opname"  name="Stock_opname.vit_stock_opname_report" />
+
+        <!-- document template -->
+        <template id="Stock_opname.vit_stock_opname_report_document" >
+            <t t-call="web.external_layout">
+                <t t-set="doc" t-value="doc.with_context({'lang': lang})"/>
+                <div class="page">
+                    <h2>
+                        Stock opname: <span t-field="doc.name"/>
+                    </h2>
+                    <div class="row mt32 mb32">
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Tanggal</strong>
+                            <p class="m-0" t-field="doc.tanggal" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Storage</strong>
+                            <p class="m-0" t-field="doc.Storage" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Data entry</strong>
+                            <p class="m-0" t-field="doc.data_entry" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>No po</strong>
+                            <p class="m-0" t-field="doc.No_po" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>No kartu</strong>
+                            <p class="m-0" t-field="doc.No_kartu" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Item</strong>
+                            <p class="m-0" t-field="doc.item_id" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Item name</strong>
+                            <p class="m-0" t-field="doc.item_name" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Customer</strong>
+                            <p class="m-0" t-field="doc.Customer" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Qty</strong>
+                            <p class="m-0" t-field="doc.Qty" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Proses</strong>
+                            <p class="m-0" t-field="doc.Proses" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>No kartu son</strong>
+                            <p class="m-0" t-field="doc.No_kartu_son" />
+                        </div>
+                        <div class="col-auto mw-100 mb-2">
+                            <strong>Keterangan</strong>
+                            <p class="m-0" t-field="doc.keterangan" />
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure"/>
+            </t>
+        </template>
+
+        <!-- main template -->
+        <template id="Stock_opname.vit_stock_opname_report">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-set="lang" t-value="doc.create_uid.lang"/>
+                    <t t-call="Stock_opname.vit_stock_opname_report_document" />
+                </t>
+            </t>
+        </template>
+
+    </data>
+</odoo>

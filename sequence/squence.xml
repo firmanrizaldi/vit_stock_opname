@@ -1,0 +1,17 @@
+
+<odoo>
+	<data>
+
+		<record id="NO_SON" model="ir.sequence">
+			<field name="name">NO_SON</field>
+			<field name="code">vit.stock_opname</field>
+			<field name="prefix">SON/</field>
+			<field name="suffix">/WIP</field>
+			<field name="padding">3</field>
+			<field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+		</record>
+
+
+	</data>
+</odoo>

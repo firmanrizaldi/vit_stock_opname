@@ -1,0 +1,6 @@
+<odoo>
+	<data>
+		<menuitem id="Stock_opname_top_menu" name="SON WIP" sequence="20" web_icon="Stock_opname,static/description/icon.png" />
+		<menuitem id="Stock_opname_sub_menu" name="SON WIP" sequence="40" parent="Stock_opname_top_menu" web_icon="Stock_opname,static/description/icon.png" />
+	</data>
+</odoo>

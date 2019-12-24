@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- tree view -->
+        <record id="view_vit_stock_opname_tree" model="ir.ui.view">
+            <field name="name">vit_stock_opname_tree</field>
+            <field name="model">vit.stock_opname</field>
+            <field name="type">tree</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Stock opname">
+                    <field name="name"/>
+                    <field name="tanggal" />
+                    <field name="Storage" />
+                    <field name="data_entry" />
+                    <field name="No_po" />
+                    <field name="No_kartu" />
+                    <field name="item_id" invisible="1"/>
+                    <field name="item_name" />
+                    <field name="Customer" />
+                    <field name="Qty" />
+                    <field name="Proses" />
+                    <field name="keterangan" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+        <!-- form view -->
+        <record id="view_vit_stock_opname_form" model="ir.ui.view">
+            <field name="name">vit_stock_opname_form</field>
+            <field name="model">vit.stock_opname</field>
+            <field name="type">form</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="SON WIP">
+                    <header>
+                        <!--button string="Confirm" type="object" name="action_confirm" states="draft" /-->
+                        <!--button string="Mark as Done" type="object" name="action_done" states="confirmed" /-->
+                        <!--button string="Reset to Draft" type="object" name="action_draft" states="confirmed,done" /-->
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <!--button type="object" name="action_view_detail" class="oe_stat_button" icon="fa-pencil-square-o"-->
+                                <!--field name="detail_count" widget="statinfo" string="Detail(s)"/-->
+                                <!--field name="detail_ids" invisible="1"/-->
+                            <!--/button-->
+                        </div>
+                        <div class="oe_title">
+                            <label for="name" class="oe_edit_only" string="SON WIP Name"/>
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="tanggal" />
+                                <field name="data_entry" />
+                                <field name="Customer" />
+                            </group>
+                            <group>
+                                <field name="No_po"/>
+                                <field name="No_kartu" />
+                                <field name="item_id" />
+                                <field name="item_name" />
+                                <field name="Qty" />
+                            </group>
+                            <group>
+                                <field name="Storage" />
+                                <field name="Proses" widget="selection"/>
+                            </group>
+                            <group>
+                                <field name="keterangan"/>
+                            </group>
+                                
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- search -->
+        <record id="view_vit_stock_opname_search" model="ir.ui.view">
+            <field name="name">vit_stock_opname</field>
+            <field name="model">vit.stock_opname</field>
+            <field name="arch" type="xml">
+                <search string="SON WIP">
+
+                    <filter string="Name" name="filter_by_name" domain="[('name','=','')]" />
+                    <filter string="Tanggal" name="filter_by_tanggal" domain="[('tanggal','=','')]" />
+                    <filter string="Storage" name="filter_by_Storage" domain="[('Storage','=','')]" />
+                    <filter string="Data entry" name="filter_by_data_entry" domain="[('data_entry','=','')]" />
+                    <filter string="No po" name="filter_by_No_po" domain="[('No_po','=','')]" />
+                    <filter string="No kartu" name="filter_by_No_kartu" domain="[('No_kartu','=','')]" />
+                    <filter string="Item" name="filter_by_item_id" domain="[('item_id','=','')]" />
+                    <filter string="Item name" name="filter_by_item_name" domain="[('item_name','=','')]" />
+                    <filter string="Customer" name="filter_by_Customer" domain="[('Customer','=','')]" />
+                    <filter string="Qty" name="filter_by_Qty" domain="[('Qty','=','')]" />
+                    <filter string="Proses" name="filter_by_Proses" domain="[('Proses','=','')]" />
+                    <filter string="Keterangan" name="filter_by_keterangan" domain="[('keterangan','=','')]" />
+                    <field name="name" select="True"/>
+                    <field name="tanggal" select="True"/>
+                    <field name="Storage" select="True"/>
+                    <field name="data_entry" select="True"/>
+                    <field name="No_po" select="True"/>
+                    <field name="No_kartu" select="True"/>
+                    <field name="item_id" select="True"/>
+                    <field name="item_name" select="True"/>
+                    <field name="Customer" select="True"/>
+                    <field name="Qty" select="True"/>
+                    <field name="Proses" select="True"/>
+                    <field name="keterangan" select="True"/>
+                    <group string="Group By..">
+                    </group>
+                </search>
+            </field>
+        </record>
+        <!-- kanban , to show image, please add image_small in the model -->
+        <record id="view_vit_stock_opname_kanban" model="ir.ui.view" >
+            <field name="name">vit_stock_opname</field>
+            <field name="model">vit.stock_opname</field>
+            <field name="arch" type="xml">
+                <kanban version="7.0">
+                    <field name="id" />
+                    <field name="name" />
+                    <field name="tanggal" />
+                    <field name="Storage" />
+                    <field name="data_entry" />
+                    <field name="No_po" />
+                    <field name="No_kartu" />
+                    <field name="item_id" />
+                    <field name="item_name" />
+                    <field name="Customer" />
+                    <field name="Qty" />
+                    <field name="Proses" />
+                    <field name="keterangan" />
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                <div class="oe_kanban_details">
+                                    <h4>
+                                        <a type="open"><field name="name"/></a>
+                                    </h4>
+                                    <ul>
+                                        <li>
+                                            Tanggal :  <field name="tanggal"></field>
+                                        </li>
+                                        <li>
+                                            Storage :  <field name="Storage"></field>
+                                        </li>
+                                        <li>
+                                            Data Entry : <field name="data_entry"></field>
+                                        </li>
+                                        <li>
+                                            Customer : <field name="Customer"></field>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!-- calendar if a date field exists -->
+        <record id="view_vit_stock_opname_cal" model="ir.ui.view">
+            <field name="name">vit_stock_opname_cal</field>
+            <field name="model">vit.stock_opname</field>
+            <field name="arch" type="xml">
+                <calendar string="SON WIP" date_start="tanggal">
+                    <field name="name" />
+                </calendar>
+            </field>
+        </record>
+        <!-- graph -->
+        <record id="view_vit_stock_opname_graph" model="ir.ui.view">
+            <field name="name">vit_stock_opname</field>
+            <field name="model">vit.stock_opname</field>
+            <field name="arch" type="xml">
+                <graph string="SON WIP" type="bar">
+                </graph>
+            </field>
+        </record>
+        <!-- action window -->
+        <record id="action_vit_stock_opname" model="ir.actions.act_window">
+            <field name="name">SON WIP</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">vit.stock_opname</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">kanban,tree,form,calendar</field>
+            <field name="context">{"search_default_fieldname":1}</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                Click to add a new SON WIP
+                </p><p>
+                Click the Create button to add a new SON WIP
+                </p>
+            </field>
+        </record>
+
+        <menuitem id="menu_vit_stock_opname" name="SON WIP" parent="Stock_opname_sub_menu" action="action_vit_stock_opname" sequence="20"/>
+    </data>
+</odoo>
