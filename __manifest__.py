@@ -19,8 +19,8 @@
 		"view/stock_opname.xml",
 		"view/workcenter.xml",
 		"sequence/squence.xml",
-		"data/mrp.workcenter.csv",
 		"data/storage.proses.csv",
+		"data/mrp.workcenter.csv",
   
 		# "report/stock_opname.xml",
 	],
