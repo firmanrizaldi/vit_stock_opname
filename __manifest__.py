@@ -19,7 +19,8 @@
 		"view/stock_opname.xml",
 		"view/workcenter.xml",
 		"sequence/squence.xml",
-		# "data/workorder.xml",
+		"data/mrp.workcenter.csv",
+		"data/storage.proses.csv",
   
 		# "report/stock_opname.xml",
 	],
