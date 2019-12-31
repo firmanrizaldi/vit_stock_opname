@@ -1,6 +1,6 @@
 
 <odoo>
-	<data>
+	<data noupdate="1">
 
 		<record id="NO_SON" model="ir.sequence">
 			<field name="name">NO_SON</field>

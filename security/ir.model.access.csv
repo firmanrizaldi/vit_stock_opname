@@ -1,3 +1,4 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 access_all_vit_stock_opname,access_all_vit_stock_opname,model_vit_stock_opname,,1,0,0,0
 access_admin_vit_stock_opname,access_admin_vit_stock_opname,model_vit_stock_opname,base.group_system,1,1,1,1
+access_admin_storage_proses,access_admin_storage_proses,model_storage_proses,base.group_system,1,1,1,1
